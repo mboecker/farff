@@ -5,7 +5,7 @@
 \title{Write ARFF data.frame to ARFF file.}
 \usage{
 writeARFF(x, path, overwrite = FALSE, chunk.size = 1e+06,
-  relation = deparse(substitute(x)))
+  relation = deparse(substitute(x)), quote = "all")
 }
 \arguments{
 \item{x}{[\code{data.frame}]\cr
@@ -27,6 +27,10 @@ Default is \code{1e6}.}
 \item{relation}{[\code{character(1)}]\cr
 Name of the relation in the ARFF file.
 Default is to guess it from the object name.}
+
+\item{quote}{[\code{character(1)}]\cr
+Controls, what values are enclosed in quotes.
+Possible values are "all" (quote every value), "fast" (quote strings) and "slow" (quote strings, which contain whitespace or commata).}
 }
 \value{
 Nothing.
@@ -44,4 +48,3 @@ with levels \dQuote{TRUE} and \dQuote{FALSE}.
 \examples{
 # see readARFF
 }
-
